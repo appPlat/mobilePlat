@@ -14,6 +14,10 @@ public class FileServiceUtils {
 
     public static final String PATH_SEP = File.separator;
 
+    public static String getFullPathFromShellBase(String relativePath) {
+        return FileServiceConfiguration.getShellBasePath() + relativePath;
+    }
+
     public static String getFullPathFromTemplateBase(String relativePath) {
         return FileServiceConfiguration.getTemplateFileBasePath() + relativePath;
     }
@@ -36,5 +40,4 @@ public class FileServiceUtils {
         String rawFullPath = basePath + PATH_SEP + relativePath;
         return rawFullPath.replaceAll("\\\\", "///").replace("//+", "/");
     }
-
 }

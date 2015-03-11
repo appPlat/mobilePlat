@@ -1,0 +1,16 @@
+com\baidu\ee\projectservice\service\ProjectService.class
+com\baidu\ee\projectservice\common\utils\BosUtils.class
+com\baidu\ee\core\RestResponse.class
+com\baidu\ee\appservice\common\enums\AppBuildType.class
+com\baidu\ee\fileservice\common\configure\FileServiceConfiguration.class
+com\baidu\ee\core\Application.class
+com\baidu\ee\projectservice\common\configure\ProjectServiceConfiguration.class
+com\baidu\ee\fileservice\service\FileService.class
+com\baidu\ee\fileservice\common\utils\FileServiceUtils.class
+com\baidu\ee\core\RestResponse$RestResponseCode.class
+com\baidu\ee\appservice\service\AppService.class
+com\baidu\ee\fileservice\controller\FileServiceController.class
+com\baidu\ee\appservice\controller\AppServiceController.class
+com\baidu\ee\projectservice\controller\ProjectController.class
+com\baidu\ee\projectservice\common\emun\ProjectType.class
+com\baidu\ee\fileservice\common\bean\FileBean.class

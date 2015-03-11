@@ -5,14 +5,12 @@ import com.baidu.ee.projectservice.common.emun.ProjectType;
 import com.baidu.ee.projectservice.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.RequestContext;
 
-import javax.annotation.Resource;
-import javax.print.attribute.standard.Media;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +44,35 @@ public class ProjectController {
         }
 
         return new RestResponse(RestResponse.RestResponseCode.SUCC, projectUid);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE},
+            value = "/build/{projectName}")
+    public RestResponse buildProject(@PathVariable()String projectName) {
+
+        if(null == projectName) {
+            return new RestResponse(RestResponse.RestResponseCode.ERR,
+                    "error, bad project projectName");
+        }
+
+        String VRUrl = null;
+        try {
+            String VRName = projectService.buildProject(projectName);
+            if (null == VRName) {
+                return new RestResponse(RestResponse.RestResponseCode.ERR, "build project failed, VRName is Null");
+            }
+            //VRUrl = "<img src=\"http://qr.liantu.com/api.php?text="+VRName.substring(0,VRName.indexOf('?'))+"\"/>";
+            VRUrl = "http://qr.liantu.com/api.php?text="+VRName.substring(0,VRName.indexOf('?'));
+        }catch (Exception ex){
+            return new RestResponse(RestResponse.RestResponseCode.ERR,
+                    "error, build project failed, Exception");
+        }
+
+        if(StringUtils.isEmpty(VRUrl)){
+            return new RestResponse(RestResponse.RestResponseCode.ERR, "build project failed, VRUrl is Null");
+        }
+
+        return new RestResponse(RestResponse.RestResponseCode.SUCC, VRUrl);
     }
 
 

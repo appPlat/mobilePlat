@@ -7,6 +7,7 @@ import java.util.HashMap;
  */
 
 public enum ProjectType {
+    HELLOWORLD("helloWorld"),
     PHONE("phone"),
     TABLET("tablet");
 
