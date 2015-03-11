@@ -268,20 +268,6 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobilePlat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobilePlat" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -757,12 +743,12 @@
       <workItem from="1425905481893" duration="995000" />
       <workItem from="1425906518612" duration="471000" />
       <workItem from="1425907012265" duration="23681000" />
-      <workItem from="1425989367057" duration="19852000" />
+      <workItem from="1425989367057" duration="20463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45298000" />
+    <option name="totallyTimeSpent" value="45909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1096" extended-state="6" />
@@ -1137,7 +1123,7 @@
         <state vertical-scroll-proportion="0.33139536" vertical-offset="5453" max-vertical-offset="40394">
           <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
           <folding>
-            <element signature="e#13556#13557#0" expanded="true" />
+            <element signature="e#13556#13557#0" expanded="false" />
           </folding>
         </state>
       </provider>
