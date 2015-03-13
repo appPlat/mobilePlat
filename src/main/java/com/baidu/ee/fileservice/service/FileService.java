@@ -5,21 +5,13 @@ import com.baidu.ee.fileservice.common.bean.FileBean;
 import com.baidu.ee.fileservice.common.utils.FileServiceUtils;
 import com.baidu.ee.projectservice.common.emun.ProjectType;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.filefilter.FileFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -94,13 +86,13 @@ public class FileService {
 
     public Boolean createFileInPub(String projectUid, String filePath) {
 
-        String creatFilePath = FileServiceUtils.getFullPathFromPubBase(projectUid + filePath);
+        String createFilePath = FileServiceUtils.getFullPathFromPubBase(projectUid + filePath);
 
-        File file = new File(creatFilePath);
+        File file = new File(createFilePath);
         try {
             return file.createNewFile();
         } catch (IOException e) {
-            LOGGER.error("@createFileInPub create file {}, exception: {}", creatFilePath, e.getMessage());
+            LOGGER.error("@createFileInPub create file {}, exception: {}", createFilePath, e.getMessage());
             return false;
         }
     }

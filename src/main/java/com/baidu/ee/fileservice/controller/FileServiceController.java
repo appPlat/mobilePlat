@@ -3,7 +3,6 @@ package com.baidu.ee.fileservice.controller;
 import com.baidu.ee.core.RestResponse;
 import com.baidu.ee.fileservice.common.bean.FileBean;
 import com.baidu.ee.fileservice.service.FileService;
-import com.baidu.ee.projectservice.common.configure.ProjectServiceConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

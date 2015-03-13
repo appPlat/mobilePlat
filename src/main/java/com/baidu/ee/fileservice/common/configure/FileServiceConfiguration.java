@@ -13,9 +13,18 @@ public class FileServiceConfiguration {
     private static String templateFileBasePath;
     private static String pubProjectBasePath;
     private static String userProjectBasePath;
+    private static String shellBasePath;
 
     public static String getTemplateFileBasePath() {
         return templateFileBasePath;
+    }
+
+    public static String getShellBasePath() {
+        return shellBasePath;
+    }
+
+    public static void setShellBasePath(String shellBasePath) {
+        FileServiceConfiguration.shellBasePath = shellBasePath;
     }
 
     public void setTemplateFileBasePath(String templateFileBasePath) {
