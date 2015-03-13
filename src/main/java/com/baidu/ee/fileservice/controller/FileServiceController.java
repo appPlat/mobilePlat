@@ -42,11 +42,14 @@ public class FileServiceController {
         return new RestResponse<>(RestResponse.RestResponseCode.SUCC, "");
     }
 
-    @RequestMapping(value = "{puid}/read",produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.TEXT_PLAIN_VALUE})
-    public RestResponse readFileContent(@PathVariable("puid")String projectUid, @RequestBody String filePath) {
+    @RequestMapping(value = "{puid}/read",produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public RestResponse readFileContent(@PathVariable("puid")String projectUid, @RequestBody Map<String, String> readInfo) {
 
         //TODO: login user read file from userproject, otherwise from pub
-        String content = fileService.readFileContentFromPub(projectUid, filePath);
+        if(!readInfo.containsKey("filePath")) {
+            return new RestResponse(RestResponse.RestResponseCode.ERR, "bad Request params");
+        }
+        String content = fileService.readFileContentFromPub(projectUid, readInfo.get("filePath"));
         if(null == content) {
             return new RestResponse<>(RestResponse.RestResponseCode.ERR, "");
         }
