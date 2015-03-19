@@ -24,8 +24,12 @@ public class FileService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FileService.class);
 
+    private String convertTowwwPath(String projectUid, String filePath){
+        return projectUid +"/www" + filePath;
+    }
+
     public Boolean updateFileInPubProject(String projectUid, String filePath, String newContent) {
-        String relativeFilePath = projectUid + filePath;
+        String relativeFilePath = convertTowwwPath(projectUid, filePath);
         String updateFileFullPath = FileServiceUtils.getFullPathFromPubBase(relativeFilePath);
 
         try {
@@ -52,7 +56,7 @@ public class FileService {
 
     public List<FileBean> getSubFilesFromPub(String projectUid, String parentPath) {
 
-        String parentRelativePath = projectUid + parentPath;
+        String parentRelativePath = convertTowwwPath(projectUid, parentPath);
         String parentFullPath = FileServiceUtils.getFullPathFromPubBase(parentRelativePath);
 
         File parentFolder = new File(parentFullPath);
@@ -72,7 +76,8 @@ public class FileService {
     public String readFileContentFromPub(String projectUid, String filePath) {
 
         String fileContent;
-        String fileToReadFullPath = FileServiceUtils.getFullPathFromPubBase(projectUid + filePath);
+        String relativeFilePath = convertTowwwPath(projectUid, filePath);
+        String fileToReadFullPath = FileServiceUtils.getFullPathFromPubBase(relativeFilePath);
         File file = new File(fileToReadFullPath);
         try {
             fileContent = FileUtils.readFileToString(file, "UTF-8");
@@ -86,7 +91,8 @@ public class FileService {
 
     public Boolean createFileInPub(String projectUid, String filePath) {
 
-        String createFilePath = FileServiceUtils.getFullPathFromPubBase(projectUid + filePath);
+        String relativeFilePath = convertTowwwPath(projectUid, filePath);
+        String createFilePath = FileServiceUtils.getFullPathFromPubBase(relativeFilePath);
 
         File file = new File(createFilePath);
         try {
